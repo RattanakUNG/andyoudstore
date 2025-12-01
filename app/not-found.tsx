@@ -8,20 +8,12 @@ const NotFoundPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <Image
-        src="/img/footer_logo_icon.png"
-        alt={APP_NAME}
-        width={63}
-        height={63}
-        sizes="100vw"
-        className="hidden lg:block mr-2"
-      />
-      <Image
-        src="/img/logo.png"
-        alt={APP_NAME}
-        width={99}
-        height={20}
-        sizes="100vw"
-        className="mr-2"
+        src="/img/andyoud_vertica.png"
+        alt={`${APP_NAME} logo`}
+        width={250}
+        height={200}
+        priority
+        className="mb-6"
       />
       <div className="p-6 w-1/3 rounded-lg shadow-md text-center">
         <h1 className="text-3xl font-bold mb-4">Not Found</h1>
