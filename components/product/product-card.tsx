@@ -6,8 +6,8 @@ import Rating from "./rating";
 
 const ProductCard = ({ product }: { product: any }) => {
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader className="p-0 items-center">
+    <Card className="w-full max-w-sm h-fit">
+      <CardHeader className="p-0 items-center overflow-hidden">
         <Link href={`/product/${product.slug}`}>
           <Image
             src={product.images[0]}
@@ -15,6 +15,7 @@ const ProductCard = ({ product }: { product: any }) => {
             height={300}
             width={300}
             priority={true}
+            className="object-cover"
           />
         </Link>
       </CardHeader>
@@ -23,7 +24,7 @@ const ProductCard = ({ product }: { product: any }) => {
         <Link href={`/product/${product.slug}`}>
           <h2 className="text-sm font-medium">{product.name}</h2>
         </Link>
-        <div className="flex-between gap-4">
+        <div className="flex-between gap-2">
           <Rating value={Number(product.rating)} />
           {product.stock > 0 ? (
             <ProductPrice value={Number(product.price)} />

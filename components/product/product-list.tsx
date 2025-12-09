@@ -12,7 +12,7 @@ const ProductList = ({
   const displayData = limit ? data.slice(0, limit) : data;
 
   return (
-    <div className="my-10">
+    <div className="my-8">
       <h2 className="h2-bold mb-4">{title}</h2>
       {displayData.length === 0 ? (
         <p>No products available.</p>
