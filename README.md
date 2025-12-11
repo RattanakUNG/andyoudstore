@@ -12,6 +12,23 @@ yarn dev
 pnpm dev
 # or
 bun dev
+# Application using PostGre SQL with prisma so need to run prisma init and
+npx prisma generate
+npx prisma migrate dev name --init || npx prisma migrate reset --force
+npx tsx ./db/seed.ts
+
+#for new environment
+npm install -g vercel
+
+#PostGreSQL with vercel via Neon could be found on
+https://vercel.com/rattanakungs-projects/~/integrations/neon/icfg_pR6dACqmKZwLv1Jek28yhB1i/resources/storage/store_SNECGExQh9ezVV9H/guides
+
+#Or simply starting with:
+npm i @neondatabase/serverless @prisma/adapter-neon ws
+npm i -D @types/ws bufferutil
+
+#then rerun 
+npx prisma generate
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
