@@ -26,9 +26,9 @@ async function main() {
 
   try {
     await prisma.product.deleteMany();
-    // await prisma.account.deleteMany();
-    // await prisma.session.deleteMany();
-    // await prisma.verificationToken.deleteMany();
+    await prisma.account.deleteMany();
+    await prisma.session.deleteMany();
+    await prisma.verificationToken.deleteMany();
     await prisma.user.deleteMany();
 
     const users = [];
@@ -42,6 +42,7 @@ async function main() {
         await hash(sampleData.users[i].password)
       );
     }
+
     await prisma.user.createMany({ data: users });
     await prisma.product.createMany({ data: sampleData.products });
 

@@ -12,6 +12,12 @@ const sampleData = {
       password: "123456",
       role: "user",
     },
+    {
+      name: "RattanakUNG",
+      email: "ungrattanak@gmail.com",
+      password: "123456789",
+      role: "admin",
+    },
   ],
   products: [
     {
