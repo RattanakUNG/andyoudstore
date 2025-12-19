@@ -57,11 +57,16 @@ export async function signOutUser() {
 // Sign up user
 export async function signUpUser(prevState: unknown, formData: FormData) {
   try {
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+    const confirmPassword = formData.get("confirmPassword") as string;
+
     const user = signUpFormSchema.parse({
-      name: formData.get("name"),
-      email: formData.get("email"),
-      password: formData.get("password"),
-      confirmPassword: formData.get("confirmPassword"),
+      name,
+      email,
+      password,
+      confirmPassword,
     });
 
     const plainPassword = user.password;
@@ -86,7 +91,12 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
     if (isRedirectError(error)) {
       throw error;
     }
-    return { success: false, message: formatError(error) };
+    return {
+      success: false,
+      message: formatError(error),
+      name: (formData.get("name") as string) || "",
+      email: (formData.get("email") as string) || "",
+    };
   }
 }
 
