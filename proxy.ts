@@ -1,7 +1,6 @@
-import NextAuth from "next-auth";
-import { authConfig } from "./auth.config";
+import { auth } from "./auth";
 
-export const { auth: middleware } = NextAuth(authConfig);
+export const proxy = auth;
 
 // // import NextAuth from "next-auth";
 // import { NextResponse } from "next/server";
