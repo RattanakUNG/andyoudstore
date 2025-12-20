@@ -1,11 +1,13 @@
 import NextAuth from "next-auth";
+import { authConfig } from "./auth.config";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/db/prisma";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { verify } from "@/lib/encrypt";
-import type { NextAuthConfig } from "next-auth";
+import { cookies } from "next/headers";
+import { tr } from "zod/v4/locales";
 
-export const config = {
+export const { handlers, auth, signIn, signOut } = NextAuth({
   pages: {
     signIn: "/auth/signin",
     signOut: "/auth/signout",
@@ -65,16 +67,15 @@ export const config = {
     }),
   ],
   callbacks: {
+    ...authConfig.callbacks,
     async session({ session, user, trigger, token }) {
       // Set the user ID from the token
       session.user.id = token.sub;
       session.user.role = token.role;
       session.user.name = token.name;
 
-      // console.log(token);
-
       // If there is an update, set the user name
-      if (trigger === "update" && user?.name) {
+      if (trigger === "update") {
         session.user.name = user.name;
       }
 
@@ -97,29 +98,29 @@ export const config = {
           });
         }
 
-        // if (trigger === 'signIn' || trigger === 'signUp') {
-        //   const cookiesObject = await cookies();
-        //   const sessionCartId = cookiesObject.get('sessionCartId')?.value;
+        if (trigger === "signIn" || trigger === "signUp") {
+          const cookiesObject = await cookies();
+          const sessionCartId = cookiesObject.get("sessionCartId")?.value;
 
-        //   // if (sessionCartId) {
-        //   //   const sessionCart = await prisma.cart.findFirst({
-        //   //     where: { sessionCartId },
-        //   //   });
+          if (sessionCartId) {
+            const sessionCart = await prisma.cart.findFirst({
+              where: { sessionCartId },
+            });
 
-        //   //   if (sessionCart) {
-        //   //     // Delete current user cart
-        //   //     await prisma.cart.deleteMany({
-        //   //       where: { userId: user.id },
-        //   //     });
+            if (sessionCart) {
+              // Delete current user cart
+              await prisma.cart.deleteMany({
+                where: { userId: user.id },
+              });
 
-        //   //     // Assign new cart
-        //   //     await prisma.cart.update({
-        //   //       where: { id: sessionCart.id },
-        //   //       data: { userId: user.id },
-        //   //     });
-        //   //   }
-        //   // }
-        // }
+              // Assign new cart
+              await prisma.cart.update({
+                where: { id: sessionCart.id },
+                data: { userId: user.id },
+              });
+            }
+          }
+        }
       }
 
       // Handle session updates
@@ -130,6 +131,4 @@ export const config = {
       return token;
     },
   },
-} satisfies NextAuthConfig;
-
-export const { handlers, auth, signIn, signOut } = NextAuth(config);
+});

@@ -1,23 +1,47 @@
-// "use client";
-// import { Button } from "@/components/ui/button";
-// import { useRouter } from "next/navigation";
-// import { Plus, Minus, Loader } from "lucide-react";
-// // import { Cart, CartItem } from "@/types";
-// // import { useToast } from "@/hooks/use-toast";
+"use client";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { Plus, Minus, Loader } from "lucide-react";
+import { Cart, CartItem } from "@/types";
+import { toast } from "sonner";
+
 // // import { ToastAction } from "@/components/ui/toast";
-// // import { addItemToCart, removeItemFromCart } from "@/lib/actions/cart.actions";
+import { addItemToCart, removeItemFromCart } from "@/lib/actions/cart.actions";
 // import { useTransition } from "react";
 
-// // const AddToCart = ({ cart, item }: { cart?: Cart; item: CartItem }) => {
+const AddToCart = ({ cart, item }: { cart?: Cart; item: CartItem }) => {
+  const router = useRouter();
+
+  const handleAddToCart = async () => {
+    const res = await addItemToCart(item);
+    if (!res.success) {
+      toast.error(res.message);
+      return;
+    }
+    // Handle success add to cart
+    toast.success(res.message, {
+      action: {
+        label: "Go To Cart",
+        onClick: () => router.push("/cart"),
+      },
+    });
+  };
+
+  return (
+    <Button className="w-full" type="button" onClick={handleAddToCart}>
+      <Plus />
+      Add To Cart
+    </Button>
+  );
+};
+
+// const AddToCart = ({ cart, item }: { cart?: Cart; item: CartItem }) => {
 // //   const router = useRouter();
 // //   const { toast } = useToast();
-
 // //   const [isPending, startTransition] = useTransition();
-
 // //   const handleAddToCart = async () => {
 // //     startTransition(async () => {
 // //       const res = await addItemToCart(item);
-
 // //       if (!res.success) {
 // //         toast({
 // //           variant: "destructive",
@@ -25,7 +49,6 @@
 // //         });
 // //         return;
 // //       }
-
 // //       // Handle success add to cart
 // //       toast({
 // //         description: res.message,
@@ -41,25 +64,20 @@
 // //       });
 // //     });
 // //   };
-
 // //   // Handle remove from cart
 // //   const handleRemoveFromCart = async () => {
 // //     startTransition(async () => {
 // //       const res = await removeItemFromCart(item.productId);
-
 // //       toast({
 // //         variant: res.success ? "default" : "destructive",
 // //         description: res.message,
 // //       });
-
 // //       return;
 // //     });
 // //   };
-
 // //   // Check if item is in cart
 // //   const existItem =
 // //     cart && cart.items.find((x) => x.productId === item.productId);
-
 // //   return existItem ? (
 // //     <div>
 // //       <Button type="button" variant="outline" onClick={handleRemoveFromCart}>
@@ -88,6 +106,6 @@
 // //       Add To Cart
 // //     </Button>
 // //   );
-// // };
+// };
 
-// // export default AddToCart;
+export default AddToCart;
