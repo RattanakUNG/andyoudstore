@@ -4,7 +4,7 @@ import {
   shippingAddressSchema,
   signInFormSchema,
   signUpFormSchema,
-  // paymentMethodSchema,
+  paymentMethodSchema,
   // updateUserSchema,
 } from "../validators";
 import { auth, signIn, signOut } from "@/auth";
@@ -17,7 +17,7 @@ import { z } from "zod";
 import { PAGE_SIZE } from "../constants";
 import { revalidatePath } from "next/cache";
 import { Prisma } from "@prisma/client";
-// import { getMyCart } from './cart.actions';
+import { getMyCart } from "./cart.actions";
 
 // Sign in the user with credentials
 export async function signInWithCredentials(
@@ -44,13 +44,13 @@ export async function signInWithCredentials(
 // Sign user out
 export async function signOutUser() {
   // get current users cart and delete it so it does not persist to next user
-  // const currentCart = await getMyCart();
+  const currentCart = await getMyCart();
 
-  // if (currentCart?.id) {
-  //   await prisma.cart.delete({ where: { id: currentCart.id } });
-  // } else {
-  //   console.warn('No cart found for deletion.');
-  // }
+  if (currentCart?.id) {
+    await prisma.cart.delete({ where: { id: currentCart.id } });
+  } else {
+    console.warn("No cart found for deletion.");
+  }
   await signOut();
 }
 
@@ -137,32 +137,32 @@ export async function updateUserAddress(data: ShippingAddress) {
 }
 
 // Update user's payment method
-// export async function updateUserPaymentMethod(
-//   data: z.infer<typeof paymentMethodSchema>
-// ) {
-//   try {
-//     const session = await auth();
-//     const currentUser = await prisma.user.findFirst({
-//       where: { id: session?.user?.id },
-//     });
+export async function updateUserPaymentMethod(
+  data: z.infer<typeof paymentMethodSchema>
+) {
+  try {
+    const session = await auth();
+    const currentUser = await prisma.user.findFirst({
+      where: { id: session?.user?.id },
+    });
 
-//     if (!currentUser) throw new Error("User not found");
+    if (!currentUser) throw new Error("User not found");
 
-//     const paymentMethod = paymentMethodSchema.parse(data);
+    const paymentMethod = paymentMethodSchema.parse(data);
 
-//     await prisma.user.update({
-//       where: { id: currentUser.id },
-//       data: { paymentMethod: paymentMethod.type },
-//     });
+    await prisma.user.update({
+      where: { id: currentUser.id },
+      data: { paymentMethod: paymentMethod.type },
+    });
 
-//     return {
-//       success: true,
-//       message: "User updated successfully",
-//     };
-//   } catch (error) {
-//     return { success: false, message: formatError(error) };
-//   }
-// }
+    return {
+      success: true,
+      message: "User updated successfully",
+    };
+  } catch (error) {
+    return { success: false, message: formatError(error) };
+  }
+}
 
 // Update the user profile
 export async function updateProfile(user: { name: string; email: string }) {

@@ -88,7 +88,10 @@ const CartTable = ({ cart }: { cart?: Cart }) => {
       <h1 className="py-4 h2-bold">Your Cart</h1>
       {!cart || cart.items.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">View Products</Link>
+          Cart is empty.{" "}
+          <Link href="/" className="text-primary font-semibold hover:underline">
+            View Products
+          </Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
