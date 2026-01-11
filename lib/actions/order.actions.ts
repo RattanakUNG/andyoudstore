@@ -305,7 +305,13 @@ export async function getOrderSummary() {
   // Get counts for each resource
   const ordersCount = await prisma.order.count();
   const productsCount = await prisma.product.count();
-  const usersCount = await prisma.user.count();
+  const usersCount = await prisma.user.count({
+    where: {
+      role: {
+        not: "admin",
+      },
+    },
+  });
 
   // Calculate the total sales
   const totalSales = await prisma.order.aggregate({

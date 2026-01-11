@@ -242,16 +242,54 @@ const OrderDetailsTable = ({
                       onApprove={handleApprovePayPalOrder}
                     />
                   </PayPalScriptProvider>
+                  <Card>
+                    <CardContent className="p-4 gap-2 space-y-2 text-center">
+                      <div className="text-sm text-foreground">
+                        <p className="font-semibold mb-2 mb-4">
+                          Payment Security Notice
+                        </p>
+                        <p className="mb-2">
+                          Your payment is processed directly through PayPal. We
+                          do not store any of your payment card details or
+                          sensitive payment information on our servers.
+                        </p>
+                        <p className="text-sm">
+                          All payment transactions are secured and encrypted by
+                          PayPal's secure payment gateway.
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
               )}
 
               {/* Stripe Payment */}
               {!isPaid && paymentMethod === "Stripe" && stripeClientSecret && (
-                <StripePayment
-                  priceInCents={Number(order.totalPrice) * 100}
-                  orderId={order.id}
-                  clientSecret={stripeClientSecret}
-                />
+                <div>
+                  <StripePayment
+                    priceInCents={Number(order.totalPrice) * 100}
+                    orderId={order.id}
+                    clientSecret={stripeClientSecret}
+                  />
+                  <Card>
+                    <CardContent className="p-4 gap-2 space-y-2 text-center">
+                      <div className="text-sm text-foreground">
+                        <p className="font-semibold mb-2 mb-4">
+                          Payment Security Notice
+                        </p>
+                        <p className="mb-2">
+                          Your payment is processed directly through Stripe. We
+                          do not store any of your payment card details or
+                          sensitive payment information on our servers.
+                        </p>
+                        <p className="text-sm">
+                          All payment transactions are secured and encrypted by
+                          Stripe's secure payment gateway.
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
               )}
 
               {/* Cash On Delivery */}

@@ -35,7 +35,7 @@ export const PAYMENT_METHODS = process.env.PAYMENT_METHODS
 export const DEFAULT_PAYMENT_METHOD =
   process.env.DEFAULT_PAYMENT_METHOD || "PayPal";
 
-export const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 12;
+export const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 9;
 
 export const productDefaultValues = {
   name: "",
@@ -51,6 +51,10 @@ export const productDefaultValues = {
   isFeatured: false,
   banner: null,
 };
+
+export const USER_ROLES = process.env.USER_ROLES
+  ? process.env.USER_ROLES.split(", ")
+  : ["admin", "user"];
 
 export const reviewFormDefaultValues = {
   title: "",
