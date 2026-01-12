@@ -1,11 +1,11 @@
-import ProductForm from '@/components/admin/product-form';
-import { getProductById } from '@/lib/actions/product.actions';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { requireAdmin } from '@/lib/auth-guard';
+import ProductForm from "@/components/admin/product-form";
+import { getProductById } from "@/lib/actions/product.actions";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+// import { requireAdmin } from '@/lib/auth-guard';
 
 export const metadata: Metadata = {
-  title: 'Update Product',
+  title: "Update Product",
 };
 
 const AdminProductUpdatePage = async (props: {
@@ -13,7 +13,7 @@ const AdminProductUpdatePage = async (props: {
     id: string;
   }>;
 }) => {
-  await requireAdmin();
+  // await requireAdmin();
 
   const { id } = await props.params;
 
@@ -22,10 +22,10 @@ const AdminProductUpdatePage = async (props: {
   if (!product) return notFound();
 
   return (
-    <div className='space-y-8 max-w-5xl mx-auto'>
-      <h1 className='h2-bold'>Update Product</h1>
+    <div className="space-y-8 max-w-5xl mx-auto">
+      <h1 className="h2-bold">Update Product</h1>
 
-      <ProductForm type='Update' product={product} productId={product.id} />
+      <ProductForm type="Update" product={product} productId={product.id} />
     </div>
   );
 };

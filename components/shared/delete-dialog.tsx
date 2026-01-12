@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { useTransition } from "react";
-// import { useToast } from '@/hooks/use-toast';
 import { toast } from "sonner";
 import { Button } from "../ui/button";
 import {
@@ -24,7 +23,6 @@ const DeleteDialog = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
-  // const { toast } = useToast();
 
   const handleDeleteClick = () => {
     startTransition(async () => {

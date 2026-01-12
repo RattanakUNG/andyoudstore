@@ -27,7 +27,7 @@ import {
   updateOrderToPaidCOD,
   deliverOrder,
 } from "@/lib/actions/order.actions";
-import StripePayment from "./stripe-payment";
+// import StripePayment from "./stripe-payment";
 
 const OrderDetailsTable = ({
   order,
@@ -266,11 +266,11 @@ const OrderDetailsTable = ({
               {/* Stripe Payment */}
               {!isPaid && paymentMethod === "Stripe" && stripeClientSecret && (
                 <div>
-                  <StripePayment
+                  {/* <StripePayment
                     priceInCents={Number(order.totalPrice) * 100}
                     orderId={order.id}
                     clientSecret={stripeClientSecret}
-                  />
+                  /> */}
                   <Card>
                     <CardContent className="p-4 gap-2 space-y-2 text-center">
                       <div className="text-sm text-foreground">

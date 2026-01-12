@@ -6,7 +6,7 @@ export const SERVER_URL =
   process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
 
 export const LATEST_PRODUCTS_LIMIT =
-  Number(process.env.LATEST_PRODUCTS_LIMIT) || 4;
+  Number(process.env.LATEST_PRODUCTS_LIMIT) || 6;
 
 // Default form values for development and testing
 export const signInDefaultValues = {
@@ -35,7 +35,7 @@ export const PAYMENT_METHODS = process.env.PAYMENT_METHODS
 export const DEFAULT_PAYMENT_METHOD =
   process.env.DEFAULT_PAYMENT_METHOD || "PayPal";
 
-export const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 9;
+export const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 4;
 
 export const productDefaultValues = {
   name: "",

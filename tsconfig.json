@@ -30,7 +30,8 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "email/index.tsx",
-    "email/purchase-receipt.tsx"
+    "email/purchase-receipt.tsx",
+    "app/(root)/order/[id]/stripe-payment-success/pageabc"
   ],
   "exclude": ["node_modules"]
 }

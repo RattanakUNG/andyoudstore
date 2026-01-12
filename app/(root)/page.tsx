@@ -10,7 +10,7 @@ const Homepage = async () => {
 
   return (
     <>
-      <ProductList data={latestProducts} title="New Arrival" limit={4} />
+      <ProductList data={latestProducts} title="New Arrival" limit={6} />
     </>
   );
 };
