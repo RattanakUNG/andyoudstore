@@ -35,14 +35,14 @@ export const PAYMENT_METHODS = process.env.PAYMENT_METHODS
 export const DEFAULT_PAYMENT_METHOD =
   process.env.DEFAULT_PAYMENT_METHOD || "PayPal";
 
-export const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 4;
+export const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 9;
 
 export const productDefaultValues = {
   name: "",
   slug: "",
   category: "",
   images: [],
-  brand: "",
+  brand: "AndyOud Cambodia",
   description: "",
   price: "0",
   stock: 0,

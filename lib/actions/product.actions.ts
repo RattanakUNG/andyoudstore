@@ -167,7 +167,8 @@ export async function updateProduct(data: z.infer<typeof updateProductSchema>) {
       data: product,
     });
 
-    revalidatePath("/admin/products");
+    // revalidatePath("/admin/products");
+    revalidatePath(`/admin/products/${product.id}`);
 
     return {
       success: true,

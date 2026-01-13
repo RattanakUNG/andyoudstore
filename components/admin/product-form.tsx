@@ -82,7 +82,7 @@ const ProductForm = ({
         return;
       } else {
         toast.success(res.message);
-        router.push("/admin/products");
+        router.push(`/admin/products/${productId}`);
       }
     }
   };
@@ -119,7 +119,7 @@ const ProductForm = ({
             name="slug"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Name</FormLabel>
+                <FormLabel>Slug</FormLabel>
                 <FormControl>
                   <div className="flex items-center gap-2">
                     <Input
@@ -216,18 +216,20 @@ const ProductForm = ({
                 <FormLabel>Images</FormLabel>
                 <Card>
                   <CardContent className="space-y-2 mt-2 min-h-48">
-                    <div className="flex-start space-x-2">
-                      {images.map((image: string) => (
-                        <Image
-                          key={image}
-                          src={image}
-                          alt="product image"
-                          className="w-20 h-20 object-cover object-center rounded-sm"
-                          width={100}
-                          height={100}
-                        />
-                      ))}
-                      <FormControl>
+                    <div className="flex items-start gap-3">
+                      <div className="flex flex-wrap gap-2">
+                        {images.map((image: string) => (
+                          <Image
+                            key={image}
+                            src={image}
+                            alt="product image"
+                            className="w-20 h-20 object-cover object-center rounded-sm"
+                            width={100}
+                            height={100}
+                          />
+                        ))}
+                      </div>
+                      <FormControl className="ml-auto">
                         <UploadButton
                           endpoint="imageUploader"
                           onClientUploadComplete={(res: { url: string }[]) => {
@@ -235,6 +237,10 @@ const ProductForm = ({
                           }}
                           onUploadError={(error: Error) => {
                             toast.error(error.message);
+                          }}
+                          appearance={{
+                            button:
+                              "bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500",
                           }}
                         />
                       </FormControl>
@@ -277,15 +283,21 @@ const ProductForm = ({
               )}
 
               {isFeatured && !banner && (
-                <UploadButton
-                  endpoint="imageUploader"
-                  onClientUploadComplete={(res: { url: string }[]) => {
-                    form.setValue("banner", res[0].url);
-                  }}
-                  onUploadError={(error: Error) => {
-                    toast.error(error.message);
-                  }}
-                />
+                <div className="flex justify-end">
+                  <UploadButton
+                    endpoint="imageUploader"
+                    onClientUploadComplete={(res: { url: string }[]) => {
+                      form.setValue("banner", res[0].url);
+                    }}
+                    onUploadError={(error: Error) => {
+                      toast.error(error.message);
+                    }}
+                    appearance={{
+                      button:
+                        "bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500",
+                    }}
+                  />
+                </div>
               )}
             </CardContent>
           </Card>
