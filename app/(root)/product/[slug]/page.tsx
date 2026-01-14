@@ -2,10 +2,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { getProductBySlug } from "@/lib/actions/product.actions";
 import { notFound } from "next/navigation";
-import ProductPrice from "@/components/product/product-price";
-import ProductImages from "@/components/product/product-images";
-import Rating from "@/components/product/rating";
-import AddToCart from "@/components/product/add-to-cart";
+import ProductPrice from "@/components/shared/product/product-price";
+import ProductImages from "@/components/shared/product/product-images";
+import Rating from "@/components/shared/product/rating";
+import AddToCart from "@/components/shared/product/add-to-cart";
 import { getMyCart } from "@/lib/actions/cart.actions";
 
 const ProductDetailsPage = async (props: {

@@ -36,8 +36,10 @@ const AdminOrdersPage = async (props: {
       <div className="flex items-center gap-3">
         <h1 className="h2-bold">Orders</h1>
         {searchText && (
-          <div>
-            Filtered by <i>&quot;{searchText}&quot;</i>{" "}
+          <div className="ml-55 flex items-center gap-2">
+            <span>
+              Filtered by <i>&quot;{searchText}&quot;</i>
+            </span>
             <Link href="/admin/orders">
               <Button variant="outline" size="sm">
                 Remove Filter
@@ -69,9 +71,17 @@ const AdminOrdersPage = async (props: {
                 <TableCell>{order.user.name}</TableCell>
                 <TableCell>{formatCurrency(order.totalPrice)}</TableCell>
                 <TableCell>
-                  {order.isPaid && order.paidAt
-                    ? formatDateTime(order.paidAt).dateTime
-                    : "Not Paid"}
+                  <span
+                    className={
+                      order.isPaid && order.paidAt
+                        ? undefined
+                        : "text-yellow-600 font-semibold"
+                    }
+                  >
+                    {order.isPaid && order.paidAt
+                      ? formatDateTime(order.paidAt).dateTime
+                      : "Not Paid"}
+                  </span>
                 </TableCell>
                 <TableCell>
                   {order.isDelivered && order.deliveredAt

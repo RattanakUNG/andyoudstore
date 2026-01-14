@@ -2,13 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { APP_NAME } from "@/lib/constants";
 import Menu from "./menu";
+import CategoryDrawer from "./category-drawer";
 
 const Header = async () => {
   return (
     <header className="w-full border-b">
       <div className="wrapper flex h-16 items-center justify-between">
         <div className="flex-start">
-          <Link href="/" className="flex-start">
+          <CategoryDrawer />
+          <Link href="/" className="flex-start ml-4">
             <Image
               src="/img/footer_logo_icon.png"
               alt={APP_NAME}
