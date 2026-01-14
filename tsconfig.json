@@ -31,7 +31,7 @@
     "**/*.mts",
     "email/index.tsx",
     "email/purchase-receipt.tsx",
-    "app/(root)/order/[id]/stripe-payment-success/pageabc"
+    "app/(root)/order/[id]/stripe-payment-success/page.tsx"
   ],
   "exclude": ["node_modules"]
 }

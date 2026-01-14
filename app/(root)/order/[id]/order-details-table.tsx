@@ -27,7 +27,7 @@ import {
   updateOrderToPaidCOD,
   deliverOrder,
 } from "@/lib/actions/order.actions";
-// import StripePayment from "./stripe-payment";
+import StripePayment from "./stripe-payment";
 
 const OrderDetailsTable = ({
   order,
@@ -255,7 +255,7 @@ const OrderDetailsTable = ({
                         </p>
                         <p className="text-sm">
                           All payment transactions are secured and encrypted by
-                          PayPal's secure payment gateway.
+                          PayPal&apos;s secure payment gateway.
                         </p>
                       </div>
                     </CardContent>
@@ -266,11 +266,11 @@ const OrderDetailsTable = ({
               {/* Stripe Payment */}
               {!isPaid && paymentMethod === "Stripe" && stripeClientSecret && (
                 <div>
-                  {/* <StripePayment
+                  <StripePayment
                     priceInCents={Number(order.totalPrice) * 100}
                     orderId={order.id}
                     clientSecret={stripeClientSecret}
-                  /> */}
+                  />
                   <Card>
                     <CardContent className="p-4 gap-2 space-y-2 text-center">
                       <div className="text-sm text-foreground">
@@ -284,7 +284,7 @@ const OrderDetailsTable = ({
                         </p>
                         <p className="text-sm">
                           All payment transactions are secured and encrypted by
-                          Stripe's secure payment gateway.
+                          Stripe&apos;s secure payment gateway.
                         </p>
                       </div>
                     </CardContent>
