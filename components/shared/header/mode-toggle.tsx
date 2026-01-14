@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon, SunMoon } from "lucide-react";
 import {
@@ -12,7 +13,18 @@ import {
 import { Button } from "@/components/ui/button";
 
 const ModeToggle = () => {
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  // useEffect(() => setMounted(true), [setMounted]);
+  useEffect(() => setMounted(true), []);
+
+  const renderIcon = () => {
+    if (!mounted) return <SunMoon />;
+    if (theme === "system") return <SunMoon />;
+    if (theme === "dark") return <MoonIcon />;
+    return <SunIcon />;
+  };
 
   return (
     <DropdownMenu>
@@ -21,13 +33,7 @@ const ModeToggle = () => {
           variant="ghost"
           className="focus-visible:ring-0 focus-visible:ring-offset-0"
         >
-          {theme === "system" ? (
-            <SunMoon />
-          ) : theme === "dark" ? (
-            <MoonIcon />
-          ) : (
-            <SunIcon />
-          )}
+          {renderIcon()}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
