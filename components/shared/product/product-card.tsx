@@ -16,7 +16,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             height={300}
             width={300}
             priority={true}
-            className="object-cover"
+            className="object-cover rounded-xl"
           />
         </Link>
       </CardHeader>

@@ -5,6 +5,9 @@ import {
 } from "@/lib/actions/product.actions";
 // import sampleData from "@/db/sample-data";
 import ProductCarousel from "@/components/shared/product/product-carousel";
+import IconBoxes from "@/components/icon-boxes";
+import ViewAllProductsButton from "@/components/view-all-products-button";
+import DealCountdown from "@/components/deal-countdown";
 
 // const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -19,6 +22,9 @@ const Homepage = async () => {
         <ProductCarousel data={featuredProducts} />
       )}
       <ProductList data={latestProducts} title="New Arrival" limit={4} />
+      <ViewAllProductsButton />
+      <DealCountdown />
+      <IconBoxes />
     </>
   );
 };
