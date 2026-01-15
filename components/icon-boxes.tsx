@@ -1,4 +1,5 @@
 import { DollarSign, Headset, ShoppingBag, WalletCards } from "lucide-react";
+import Link from "next/link";
 import { Card, CardContent } from "./ui/card";
 
 const IconBoxes = () => {
@@ -17,7 +18,7 @@ const IconBoxes = () => {
             <DollarSign />
             <div className="text-sm font-bold">Money Back Guarantee</div>
             <div className="text-sm text-muted-foreground">
-              Within 30 days of purchase
+              Within 7 days of purchase
             </div>
           </div>
           <div className="space-y-2">
@@ -31,7 +32,13 @@ const IconBoxes = () => {
             <Headset />
             <div className="text-sm font-bold">24/7 Support</div>
             <div className="text-sm text-muted-foreground">
-              Get support at any time
+              Get support at any time or{" "}
+              <Link
+                href="/locations"
+                className="text-primary font-semibold hover:underline"
+              >
+                visit our 5 locations
+              </Link>
             </div>
           </div>
         </CardContent>
