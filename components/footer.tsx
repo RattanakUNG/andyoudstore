@@ -1,5 +1,5 @@
 import { APP_NAME } from "@/lib/constants";
-import Link from "next/link";
+import FooterMenu from "./footer_menu";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,26 +10,7 @@ const Footer = () => {
         <div>
           {currentYear} {APP_NAME}. All Rights Reserved
         </div>
-        <div className="flex gap-4">
-          <Link
-            href="/locations"
-            className="text-primary font-semibold hover:underline"
-          >
-            Locations
-          </Link>
-          <Link
-            href="/videos"
-            className="text-primary font-semibold hover:underline"
-          >
-            Videos
-          </Link>
-          <Link
-            href="/about"
-            className="text-primary font-semibold hover:underline"
-          >
-            About Us
-          </Link>
-        </div>
+        <FooterMenu />
       </div>
     </footer>
   );

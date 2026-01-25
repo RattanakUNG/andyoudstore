@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 // Static target date (replace with desired date)
-const TARGET_DATE = new Date("2026-01-30T00:00:00");
+const TARGET_DATE = new Date("2026-02-28T00:00:00");
 
 // Function to calculate the time remaining
 const calculateTimeRemaining = (targetDate: Date) => {
@@ -15,7 +15,7 @@ const calculateTimeRemaining = (targetDate: Date) => {
   return {
     days: Math.floor(timeDifference / (1000 * 60 * 60 * 24)),
     hours: Math.floor(
-      (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
     ),
     minutes: Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60)),
     seconds: Math.floor((timeDifference % (1000 * 60)) / 1000),
@@ -72,7 +72,7 @@ const DealCountdown = () => {
 
           <div className="text-center">
             <Button asChild>
-              <Link href="/search">View Products</Link>
+              <Link href="/product/andy-mood">View Products</Link>
             </Button>
           </div>
         </div>
@@ -93,10 +93,11 @@ const DealCountdown = () => {
       <div className="flex flex-col gap-2 justify-center">
         <h3 className="text-3xl font-bold">Deal Of The Month</h3>
         <p>
-          Get ready for a shopping experience like never before with our Deals
-          of the Month! Every purchase comes with exclusive perks and offers,
-          making this month a celebration of savvy choices and amazing deals.
-          Don&apos;t miss out! 🎁🛒
+          Get ready for a <span className="text-primary">20% discount</span>
+          shopping experience like never before with our Deals of the Month!
+          Every purchase comes with exclusive perks and offers, making this
+          month a celebration of savvy choices and amazing deals. Don&apos;t
+          miss out! 🎁🛒
         </p>
         <ul className="grid grid-cols-4">
           <StatBox label="Days" value={time.days} />
@@ -106,7 +107,7 @@ const DealCountdown = () => {
         </ul>
         <div className="text-center">
           <Button asChild>
-            <Link href="/search">View Products</Link>
+            <Link href="/product/andy-mood-deal">View Andy Mood</Link>
           </Button>
         </div>
       </div>

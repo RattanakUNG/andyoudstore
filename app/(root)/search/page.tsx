@@ -1,3 +1,4 @@
+import Pagination from "@/components/shared/pagination";
 import ProductCard from "@/components/shared/product/product-card";
 import { Button } from "@/components/ui/button";
 import {
@@ -244,6 +245,9 @@ const SearchPage = async (props: {
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
+        {products.totalPages > 1 && (
+          <Pagination page={page} totalPages={products.totalPages} />
+        )}
       </div>
     </div>
   );
