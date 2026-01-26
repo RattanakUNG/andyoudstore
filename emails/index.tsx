@@ -28,7 +28,7 @@ export const sendPurchaseReceipt = async ({ order }: { order: Order }) => {
   const emailHtml = await render(PurchaseReceiptEmail({ order }));
 
   await resend.emails.send({
-    from: `${APP_NAME} <'international@support.andyoud.com'>`,
+    from: `${APP_NAME} <international@support.andyoud.com>`,
     to: order.user.email,
     subject: `Order Confirmation ${order.id}`,
     html: emailHtml,
@@ -57,8 +57,8 @@ export const sendContactEmail = async (payload: ContactPayload) => {
   );
 
   await resend.emails.send({
-    from: `international@support.andyoud.com`,
-    to: "ungrattanak@gmail.com",
+    from: `${APP_NAME} <contact_form@support.andyoud.com>`,
+    to: ["ungrattanak@gmail.com", "andyoudinternational@gmail.com"],
     subject: subjectLine,
     html: emailHtml,
   });
