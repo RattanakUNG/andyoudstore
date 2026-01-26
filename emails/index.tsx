@@ -47,7 +47,6 @@ export const sendContactEmail = async (payload: ContactPayload) => {
     from: `${APP_NAME} <${SENDER_EMAIL}>`,
     to,
     subject: subjectLine,
-    reply_to: email,
     react: (
       <ContactEmail
         name={name}
