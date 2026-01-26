@@ -1,3 +1,34 @@
+import { sendContactEmail } from "@/emails";
+import { toast } from "sonner";
+
+const submitContact = async (formData: FormData) => {
+  "use server";
+
+  const name = formData.get("name")?.toString();
+  const email = formData.get("email")?.toString();
+  const phone = formData.get("phone")?.toString();
+  const subject = formData.get("subject")?.toString();
+  const message = formData.get("message")?.toString();
+
+  if (!name || !email || !subject || !message) {
+    throw new Error("Missing required contact fields.");
+  }
+
+  const result = await sendContactEmail({
+    name,
+    email,
+    phone,
+    subject,
+    message,
+  });
+
+  if (!result) {
+    throw new Error("Failed to send contact email.");
+  }
+
+  toast.success("Your message has been sent successfully!");
+};
+
 const Locations = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 md:py-16">
@@ -7,7 +38,7 @@ const Locations = () => {
           Tell us what you need and we'll get back within one business day.
         </p>
 
-        <form className="mt-6 grid grid-cols-1 gap-6">
+        <form action={submitContact} className="mt-6 grid grid-cols-1 gap-6">
           <div className="grid gap-2">
             <label className="text-sm font-semibold" htmlFor="name">
               Full Name
