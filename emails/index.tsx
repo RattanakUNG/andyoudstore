@@ -57,8 +57,8 @@ export const sendContactEmail = async (payload: ContactPayload) => {
   );
 
   await resend.emails.send({
-    from: `${APP_NAME} <${SENDER_EMAIL}>`,
-    to,
+    from: `${APP_NAME} <support@andyoud.com>`,
+    to: "ungrattanak@gmail.com",
     subject: subjectLine,
     html: emailHtml,
   });

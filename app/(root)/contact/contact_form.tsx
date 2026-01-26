@@ -117,3 +117,5 @@ const ContactForm = ({ action }: ContactFormProps) => {
 };
 
 export default ContactForm;
+
+//Hi there, I need a good price for whole seller. Please contact me as soon as possible. Thank you!
