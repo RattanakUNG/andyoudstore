@@ -31,6 +31,22 @@ const AboutPage = () => {
           playsInline
         />
       </section>
+      <section className="w-full">
+        <div
+          className="relative w-full overflow-hidden rounded-none md:rounded-xl shadow-lg"
+          style={{ paddingTop: "56.25%" }}
+        >
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src="https://www.youtube.com/embed/8OTSezNMdvI?si=M7iPgjsBzRKISOcF"
+            title="Andy at Kampong Seila, Cambodia"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+      </section>
     </div>
   );
 };
