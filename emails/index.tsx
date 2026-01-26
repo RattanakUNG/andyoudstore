@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { render } from "@react-email/components";
 import { SENDER_EMAIL, APP_NAME } from "../lib/constants";
 import { Order } from "../types";
 import dotenv from "dotenv";
@@ -24,11 +25,13 @@ export const sendPurchaseReceipt = async ({ order }: { order: Order }) => {
     throw new Error("RESEND_API_KEY is missing. Set it in your .env file.");
   }
 
+  const emailHtml = await render(PurchaseReceiptEmail({ order }));
+
   await resend.emails.send({
     from: `${APP_NAME} <${SENDER_EMAIL}>`,
     to: order.user.email,
     subject: `Order Confirmation ${order.id}`,
-    react: <PurchaseReceiptEmail order={order} />,
+    html: emailHtml,
   });
 };
 
@@ -43,18 +46,20 @@ export const sendContactEmail = async (payload: ContactPayload) => {
     ? `Contact: ${subject}`
     : "New contact form submission";
 
+  const emailHtml = await render(
+    ContactEmail({
+      name,
+      email,
+      phone,
+      subject,
+      message,
+    }),
+  );
+
   await resend.emails.send({
     from: `${APP_NAME} <${SENDER_EMAIL}>`,
     to,
     subject: subjectLine,
-    react: (
-      <ContactEmail
-        name={name}
-        email={email}
-        phone={phone}
-        subject={subject}
-        message={message}
-      />
-    ),
+    html: emailHtml,
   });
 };

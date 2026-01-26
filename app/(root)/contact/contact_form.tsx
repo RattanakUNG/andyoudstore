@@ -12,12 +12,13 @@ const ContactForm = ({ action }: ContactFormProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
     startTransition(async () => {
       try {
         await action(formData);
-        event.currentTarget.reset();
+        form.reset();
         toast.success("Your message has been sent successfully!");
       } catch (error) {
         console.error(error);
