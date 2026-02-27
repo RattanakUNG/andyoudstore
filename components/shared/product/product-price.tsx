@@ -12,16 +12,16 @@ const ProductPrice = ({
   // Get the int/float
   const [intValue, floatValue] = stringValue.split(".");
 
-  // return (
-  //   <p className={cn("text-2xl", className)}>
-  //     <span className="text-xs align-super" title="United Arab Emirates Dirham">
-  //       AED
-  //     </span>{" "}
-  //     {intValue}
-  //     <span className="text-xs align-super">.{floatValue}</span>
-  //   </p>
-  // );
-  return null;
+  return (
+    <p className={cn("text-2xl whitespace-nowrap text-center px-2", className)}>
+      <span className="text-xs align-super" title="United Arab Emirates Dirham">
+        AED
+      </span>{" "}
+      {intValue}
+      <span className="text-xs align-super">.{floatValue}</span>
+    </p>
+  );
+  // return null;
 };
 
 export default ProductPrice;

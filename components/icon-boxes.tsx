@@ -25,19 +25,19 @@ const IconBoxes = () => {
             <WalletCards />
             <div className="text-sm font-bold">Flexible Payment</div>
             <div className="text-sm text-muted-foreground">
-              Pay with credit card, PayPal or COD
+              Pay with credit card, PayPal or Stripe
             </div>
           </div>
           <div className="space-y-2">
             <Headset />
             <div className="text-sm font-bold">24/7 Support</div>
             <div className="text-sm text-muted-foreground">
-              Get support at any time or{" "}
+              <div>Get support at any time or</div>
               <Link
                 href="/locations"
                 className="text-primary font-semibold hover:underline"
               >
-                visit our 5 locations
+                visit our stores
               </Link>
             </div>
           </div>

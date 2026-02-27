@@ -172,25 +172,24 @@ export default function Page() {
       lines: [
         "ANDY OUD (THAILAND) CO. LTD.",
         "4/13 Sukhumvit 5, Wattana, Bangkok",
-        "+66 86 037 1105",
-        "+66 81 927 0997",
+        "+66 819-270-997",
+        "+66 860-37-1105",
       ],
     },
     {
       country: "Bahrain",
       lines: [
         "ANDY OUD (BAHRAIN) CO. LTD.",
-        "Thai-Mart Mall Shop #9 (Branch 1)",
         "Souq Al Baraha Shop #1122 (Branch 2)",
-        "+973 3357 7888",
+        "+973 321-77-888",
       ],
     },
     {
-      country: "Oman",
+      country: "Dubai, UAE",
       lines: [
-        "ANDY OUD (OMAN) CO. LTD",
+        "ANDY OUD (DUBAI) CO. LTD",
         "Al Arami Boulevard Mall Shop #8",
-        "+968 954 58797",
+        "+971 58-234-4997",
       ],
     },
   ];
@@ -641,7 +640,7 @@ export default function Page() {
               <div className="flex items-start justify-between gap-4">
                 <p className="font-serif text-xl text-neutral-900">{p.title}</p>
                 <span
-                  className="rounded-full border px-3 py-1 text-[11px]"
+                  className="rounded-full border px-5 py-1.5 text-[11px] whitespace-nowrap"
                   style={{
                     borderColor: `${palette.gold}55`,
                     background: `${palette.gold}12`,
@@ -722,24 +721,17 @@ export default function Page() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-center">
             <div>
               <p className="font-serif text-2xl text-neutral-900">
-                United Arab Emirates
+                Sharjah, UAE
               </p>
               <p className="mt-2 text-sm text-neutral-700">
-                Coming Soon — an exclusive collection of fragrances, Bakhoor,
-                Oud Muattar, and signature Oud Bangles.
+                Sharjah Hoshy Ali Bin Mesmar Building 155, Shop 05
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <a
-                  href="#"
+                  href="/contact"
                   className="rounded-full bg-neutral-900 px-5 py-3 text-xs font-medium text-white hover:bg-neutral-800"
                 >
-                  Request Catalog
-                </a>
-                <a
-                  href="#"
-                  className="rounded-full border border-neutral-900/15 bg-white px-5 py-3 text-xs font-medium text-neutral-900 hover:bg-neutral-50"
-                >
-                  Wholesale Inquiry
+                  Welcome for any inquiries...
                 </a>
               </div>
             </div>

@@ -8,7 +8,7 @@ const AboutPage = () => {
         >
           <iframe
             className="absolute inset-0 h-full w-full"
-            src="https://www.youtube.com/embed/vDO_wtWOsZg?si=UqnX4eerJzt7mByV"
+            src="https://www.youtube.com/embed/vDO_wtWOsZg?si=sFkXbU8evPzEOw-w"
             title="Andy at Kampong Seila, Cambodia"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
