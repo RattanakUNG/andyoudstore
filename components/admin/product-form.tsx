@@ -133,7 +133,7 @@ const ProductForm = ({
                       onClick={() => {
                         form.setValue(
                           "slug",
-                          slugify(form.getValues("name"), { lower: true })
+                          slugify(form.getValues("name"), { lower: true }),
                         );
                       }}
                     >
@@ -219,14 +219,28 @@ const ProductForm = ({
                     <div className="flex items-start gap-3">
                       <div className="flex flex-wrap gap-2">
                         {images.map((image: string) => (
-                          <Image
-                            key={image}
-                            src={image}
-                            alt="product image"
-                            className="w-20 h-20 object-cover object-center rounded-sm"
-                            width={100}
-                            height={100}
-                          />
+                          <div key={image} className="relative group">
+                            <Image
+                              src={image}
+                              alt="product image"
+                              className="w-20 h-20 object-cover object-center rounded-sm"
+                              width={100}
+                              height={100}
+                            />
+                            <button
+                              type="button"
+                              onClick={() => {
+                                form.setValue(
+                                  "images",
+                                  images.filter((img: string) => img !== image),
+                                );
+                              }}
+                              className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity"
+                              title="Remove image"
+                            >
+                              ×
+                            </button>
+                          </div>
                         ))}
                       </div>
                       <FormControl className="ml-auto">
@@ -273,13 +287,25 @@ const ProductForm = ({
                 )}
               />
               {isFeatured && banner && (
-                <Image
-                  src={banner}
-                  alt="banner image"
-                  className="w-full object-cover object-center rounded-sm"
-                  width={1920}
-                  height={680}
-                />
+                <div className="relative group">
+                  <Image
+                    src={banner}
+                    alt="banner image"
+                    className="w-full object-cover object-center rounded-sm"
+                    width={1920}
+                    height={680}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      form.setValue("banner", "");
+                    }}
+                    className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold opacity-0 group-hover:opacity-100 transition-opacity"
+                    title="Remove banner"
+                  >
+                    ×
+                  </button>
+                </div>
               )}
 
               {isFeatured && !banner && (
