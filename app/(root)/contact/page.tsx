@@ -58,7 +58,7 @@ const Locations = () => {
         </div> */}
         <div className="border p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold mb-4">Dubai, UAE</h2>
-          <p className="text-sm">GLOBAL VILLAGE, ASIAN ROAD, SHOP #9</p>
+          <p className="text-sm">GLOBAL VILLAGE, ASIAN ROAD, SHOP #35</p>
           <p className="text-sm">Phone: +971 58-234-4997</p>
         </div>
         <div className="border p-6 rounded-lg shadow-lg">
@@ -125,13 +125,14 @@ const Locations = () => {
           {/* Right Column - Map */}
           <div className="relative h-[300px] md:h-full min-h-[300px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.8944893082665!2d55.3876!3d25.3463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDIwJzQ2LjciTiA1NcKwMjMnMTUuNCJF!5e0!3m2!1sen!2s!4v1234567890"
-              className="absolute inset-0 w-full h-full border-0"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.5526519452164!2d55.532130900000006!3d25.2519881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef58b000eb3330d%3A0xd321b8e1ed4c757e!2sAndy%20Oud%20Cambodia(Sharjah)!5e0!3m2!1sen!2skh!4v1772523441529!5m2!1sen!2skh"
+              width="600"
+              height="450"
+              style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Sharjah Location Map"
-            />
+            ></iframe>
           </div>
         </div>
       </div>

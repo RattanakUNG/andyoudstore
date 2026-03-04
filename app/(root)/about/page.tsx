@@ -188,7 +188,7 @@ export default function Page() {
       country: "Dubai, UAE",
       lines: [
         "ANDY OUD (DUBAI) CO. LTD",
-        "Al Arami Boulevard Mall Shop #8",
+        "GLOBAL VILLAGE, ASIAN ROAD, SHOP #35",
         "+971 58-234-4997",
       ],
     },

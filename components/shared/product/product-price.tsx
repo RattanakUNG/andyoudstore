@@ -15,10 +15,10 @@ const ProductPrice = ({
   return (
     <p className={cn("text-2xl whitespace-nowrap text-center px-2", className)}>
       <span className="text-xs align-super" title="United Arab Emirates Dirham">
-        AED
+        AED &#160;
+        {intValue}
+        <span className="text-xs align-super">.{floatValue}</span>
       </span>{" "}
-      {intValue}
-      <span className="text-xs align-super">.{floatValue}</span>
     </p>
   );
   // return null;

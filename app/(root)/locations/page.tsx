@@ -18,7 +18,7 @@ const Locations = () => {
             evening.
           </p>
           <ul className="space-y-2 text-muted-foreground">
-            <li>• Venue: Global Village, Asian Road, Shop #9</li>
+            <li>• Venue: Global Village, Asian Road, Shop #35</li>
             <li>• Perks: Early-bird bundles, giveaways, and meet-the-team</li>
           </ul>
         </div>
@@ -48,7 +48,7 @@ const Locations = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
         <div className="border p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold mb-4">Dubai, UAE</h2>
-          <p className="text-sm">GLOBAL VILLAGE, ASIAN ROAD, SHOP #9</p>
+          <p className="text-sm">GLOBAL VILLAGE, ASIAN ROAD, SHOP #35</p>
           <p className="text-sm">Phone: +971 58-234-4997</p>
         </div>
         <div className="border p-6 rounded-lg shadow-lg">

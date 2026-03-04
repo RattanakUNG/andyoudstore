@@ -53,7 +53,7 @@ export function round2(value: number | string) {
 }
 
 const CURRENCY_FORMATTER = new Intl.NumberFormat("en-US", {
-  currency: "USD",
+  currency: "AED",
   style: "currency",
   minimumFractionDigits: 2,
 });
@@ -104,15 +104,15 @@ export const formatDateTime = (dateString: Date) => {
   };
   const formattedDateTime: string = new Date(dateString).toLocaleString(
     "en-US",
-    dateTimeOptions
+    dateTimeOptions,
   );
   const formattedDate: string = new Date(dateString).toLocaleString(
     "en-US",
-    dateOptions
+    dateOptions,
   );
   const formattedTime: string = new Date(dateString).toLocaleString(
     "en-US",
-    timeOptions
+    timeOptions,
   );
   return {
     dateTime: formattedDateTime,
@@ -142,6 +142,6 @@ export function formUrlQuery({
     },
     {
       skipNull: true,
-    }
+    },
   );
 }
