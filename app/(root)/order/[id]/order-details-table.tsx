@@ -224,7 +224,8 @@ const OrderDetailsTable = ({
               </div>
               <div className="flex justify-between">
                 <div>Shipping</div>
-                <div>{formatCurrency(shippingPrice)}</div>
+                <div>Upon carrier charge</div>
+                {/* <div>{formatCurrency(shippingPrice)}</div> */}
               </div>
               <div className="flex justify-between">
                 <div>Total</div>
