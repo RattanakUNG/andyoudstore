@@ -21,7 +21,18 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Loader } from "lucide-react";
 import { updateUserAddress } from "@/lib/actions/user.actions";
-import { shippingAddressDefaultValues } from "@/lib/constants";
+import {
+  OPERATE_COUNTRY,
+  shippingAddressDefaultValues,
+  USER_ROLES,
+} from "@/lib/constants";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const ShippingAddressForm = ({ address }: { address: ShippingAddress }) => {
   const router = useRouter();
@@ -35,7 +46,7 @@ const ShippingAddressForm = ({ address }: { address: ShippingAddress }) => {
   const [isPending, startTransition] = useTransition();
 
   const onSubmit: SubmitHandler<z.infer<typeof shippingAddressSchema>> = async (
-    values
+    values,
   ) => {
     startTransition(async () => {
       const res = await updateUserAddress(values);
@@ -165,9 +176,23 @@ const ShippingAddressForm = ({ address }: { address: ShippingAddress }) => {
                 }) => (
                   <FormItem className="w-full">
                     <FormLabel>Country</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter country" {...field} />
-                    </FormControl>
+                    <Select
+                      onValueChange={field.onChange}
+                      value={field.value.toString()}
+                    >
+                      <FormControl className="w-full">
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Select an originated product country" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {OPERATE_COUNTRY.map((country) => (
+                          <SelectItem key={country} value={country}>
+                            {country.charAt(0).toUpperCase() + country.slice(1)}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}

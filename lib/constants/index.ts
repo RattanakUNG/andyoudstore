@@ -29,6 +29,10 @@ export const shippingAddressDefaultValues = {
   country: "",
 };
 
+export const OPERATE_COUNTRY = process.env.OPERATE_COUNTRY
+  ? process.env.OPERATE_COUNTRY.split(", ")
+  : ["Dubai", "Bahrain"];
+
 export const PAYMENT_METHODS = process.env.PAYMENT_METHODS
   ? process.env.PAYMENT_METHODS.split(", ")
   : ["PayPal", "Stripe", "CashOnDelivery"];
