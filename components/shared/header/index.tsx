@@ -30,7 +30,7 @@ const Header = async () => {
             />
           </Link>
         </div>
-        <div className="hidden md:block">
+        <div className="flex-1 mx-4">
           <Search />
         </div>
         <Menu />

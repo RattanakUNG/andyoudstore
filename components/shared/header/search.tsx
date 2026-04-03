@@ -15,15 +15,15 @@ const Search = async () => {
 
   return (
     <form action="/search" method="GET">
-      <div className="flex w-full max-w-sm items-center space-x-2">
+      <div className="flex w-full items-center space-x-2">
         <Select name="category">
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-[40px] md:w-[180px]">
             <SelectValue placeholder="All Categories" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem key="All" value="all">
               All Categories
-            </SelectItem> 
+            </SelectItem>
             {categories.map((x) => (
               <SelectItem key={x.category} value={x.category}>
                 {x.category}
@@ -35,7 +35,7 @@ const Search = async () => {
           name="q"
           type="text"
           placeholder="Search..."
-          className="md:w-[100px] lg:w-[300px]"
+          className="flex-1 min-w-0"
         />
         <Button>
           <SearchIcon />

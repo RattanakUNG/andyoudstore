@@ -9,15 +9,16 @@ const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Card className="w-full max-w-sm relative">
       <CardHeader className="p-0 items-center -mt-6 mb-4 relative z-10">
-        <Link href={`/product/${product.slug}`}>
-          <Image
-            src={product.images[0]}
-            alt={product.name}
-            height={300}
-            width={300}
-            priority={true}
-            className="object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-          />
+        <Link href={`/product/${product.slug}`} className="block w-full">
+          <div className="relative w-full aspect-square overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="object-cover"
+            />
+          </div>
         </Link>
       </CardHeader>
       <CardContent className="p-4 grid gap-4 -mt-6">
