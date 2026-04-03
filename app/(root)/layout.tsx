@@ -2,6 +2,7 @@ import { APP_NAME, APP_DESCRIPTION, SERVER_URL } from "@/lib/constants";
 import {} from "@/lib/constants";
 import Header from "@/components/shared/header";
 import Footer from "@/components/footer";
+import MouseSmokeEffect from "@/components/mouse-smoke-effect";
 
 import type { Metadata } from "next";
 
@@ -16,7 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex h-screen flex-col gradient-smoke-bg">
+      <MouseSmokeEffect />
       <Header />
       <main className="flex-1 wrapper">{children}</main>
       <Footer />

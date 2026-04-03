@@ -7,8 +7,8 @@ import Rating from "./rating";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader className="p-0 items-center">
+    <Card className="w-full max-w-sm relative">
+      <CardHeader className="p-0 items-center -mt-6 mb-4 relative z-10">
         <Link href={`/product/${product.slug}`}>
           <Image
             src={product.images[0]}
@@ -16,11 +16,11 @@ const ProductCard = ({ product }: { product: Product }) => {
             height={300}
             width={300}
             priority={true}
-            className="object-cover rounded-xl"
+            className="object-cover rounded-xl shadow-lg hover:shadow-xl transition-shadow"
           />
         </Link>
       </CardHeader>
-      <CardContent className="p-4 grid gap-4">
+      <CardContent className="p-4 grid gap-4 -mt-6">
         <div className="text-xs">{product.brand}</div>
         <Link href={`/product/${product.slug}`}>
           <h2 className="text-sm font-medium">{product.name}</h2>
