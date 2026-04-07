@@ -164,7 +164,7 @@ export default function Page() {
         "ANDY OUD (CAMBODIA) CO.LTD",
         "Bori Phiphop Thmey, Toul Sngke Office",
         "Street: 1232EO, Khan Rusey Keo",
-        "+855 90 777 189",
+        "+971 58-234-4997",
       ],
     },
     {
